@@ -14,11 +14,23 @@
     <link rel="stylesheet" href="assets/style.css" />
   </head>
 
+
+
   <body>
     <div class="container-fluid">
       <div class="row">
         <div class="col-4">
+          <button class="btn btn-primary">Cars page</button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-primary" onclick="jobpage()">Jobs page</button>
+        </div>
+        <div class="col-4">
+          <button class="btn btn-primary" onclick="housepage()">Houses page</button>
+        </div>
+      <div class='row'>
           <!-- Button trigger modal -->
+        <div class='col-4'>
           <button
             type="button"
             class="btn btn-primary btn-lg"
@@ -129,6 +141,111 @@
       </div>
       <div class="row" id="cars"></div>
     </div>
+    <div class="container-fluid">
+          <div class='row'>
+            <!-- Button trigger modal -->
+          <div class='col-4'>
+            <button
+              type="button"
+              class="btn btn-primary btn-lg"
+              data-toggle="modal"
+              data-target="#job-form">Add Job
+            </button>
+  
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="job-form"
+              tabindex="-1"
+              role="dialog"
+              aria-labelledby="modelTitleId"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Post a Job</h5>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form onsubmit="app.jobsController.addJob(event)">
+                      <div class="form-group">
+                        <label for="company">Company</label>
+                        <input
+                          type="text"
+                          name="company"
+                          class="form-control"
+                          placeholder="Enter a company here..."
+                          required
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <input
+                          type="text"
+                          name="jobTitle"
+                          class="form-control"
+                          placeholder="Enter a job title here..."
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="hours">Hours</label>
+                        <input
+                          type="number"
+                          min='0'
+                          max="2020"
+                          name="hours"
+                          class="form-control"
+                          placeholder="Not too much now..."
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="rate">Rate</label>
+                        <input
+                          type="number"
+                          name="rate"
+                          class="form-control"
+                          min="0"
+                          placeholder="Enter a rate here..."
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="description">Description</label>
+                        <input
+                          type="text"
+                          name="description"
+                          class="form-control"
+                          placeholder="Enter a description here..."
+                        />
+                      </div>                      
+                      <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      data-dismiss="modal">
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      <div class=row id="jobs"></div>
+      </div>
+    </div>
+
 
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

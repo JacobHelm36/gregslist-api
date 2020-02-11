@@ -14,7 +14,7 @@ function _draw() {
   carsElem.innerHTML = template;
 }
 
-//Public
+//Publica
 export default class CarsController {
   constructor() {
     store.subscribe("cars", _draw);
