@@ -1,5 +1,5 @@
-import House from "../Models/House.js"
 import store from "../store.js"
+import House from "../Models/House.js"
 
 // @ts-ignore
 let _api = axios.create({
@@ -8,7 +8,10 @@ let _api = axios.create({
 })
 
 
-export default class HouseService{
+class HousesService{
+  constructor(){
+    console.log("house service")
+  }
 
 getHouses() {
   _api 
@@ -21,4 +24,30 @@ getHouses() {
       console.error(error);
     })
   }
+  addHouse(house) {
+    _api
+      .post("", house)
+      .then(res => {
+        let apiHouses = new House(res.data.data);
+        let houses = [...store.State.houses, apiHouses]
+        store.commit("houses", houses)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
+
+  deleteHouse(id) {
+    _api
+      .delete(id)
+      .then(res => {
+        let filterHouses = store.State.houses.filter(h => h._id != id)
+        store.commit("houses", filterHouses)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+  }
 }
+const houseService = new HousesService
+export default houseService

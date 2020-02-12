@@ -4,13 +4,12 @@ import store from "../store.js";
 //Private
 function _draw() {
   let cars = store.State.cars;
-  let carsElem = document.getElementById("cars");
+  let carsElem = document.getElementById("cars")
   let template = "";
 
   cars.forEach(car => {
     template += car.Template;
   });
-
   carsElem.innerHTML = template;
 }
 
@@ -47,12 +46,10 @@ export default class CarsController {
   }
 
   bid(id, price) {
-    debugger;
     CarsService.editCar(id, { price });
   }
 
   removeImg(id) {
-    debugger;
     CarsService.editCar(id, { imgUrl: "//placehold.it/200x200" });
   }
 

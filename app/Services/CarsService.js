@@ -3,7 +3,7 @@ import Car from "../Models/Car.js";
 
 // @ts-ignore
 let _api = axios.create({
-  baseURL: "//bcw-sandbox.herokuapp.com/api/cars",
+  baseURL: "//bcw-sandbox.herokuapp.com/api/houses",
   timeout: 3000
 });
 

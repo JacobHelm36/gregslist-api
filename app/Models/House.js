@@ -16,17 +16,14 @@ export default class House {
               <div class="card">
               <img class="card-img-top" src="${this.imgUrl}" alt="Card image cap">
               <div class="card-body">
-                <h5 class="card-title">Bedrooms: ${this.bedrooms} - Bathrooms: ${this.bathrooms} - Levels: ${this.levels}</h5>
+                <h5 class="card-title">Bedrooms: ${this.bedrooms} - Bathrooms: ${this.bathrooms} - Levels: ${this.levels} - Year: ${this.year}</h5>
                 <p class="card-text">${this.description}</p>
                 <h5 class="card-text">Price: $${this.price}</h5>
-                <button class="btn btn-info" onclick="app.carsController.bid('${
-                  this._id
-                }', ${this.price + 5})">BID $5</button>
-                <button class="btn btn-danger" onclick="app.houseController.deleteHouse('${
-                  this._id
-                }')">DELETE</button>
+                <button class="btn btn-danger" onclick="app.housesController.deleteHouse('${
+                  this._id}')">DELETE</button>
               </div>
             </div>
-            </div>;`
+            </div>
+      ;`
     }
-}
+  }

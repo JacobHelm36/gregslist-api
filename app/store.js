@@ -1,9 +1,13 @@
 import Car from "./Models/Car.js";
+import Job from "./Models/Jobs.js";
+import House from "./Models/House.js"
 
 let _state = {
   /** @type {Car[]} */
   cars: [],
+  /** @type {Job[]} */
   jobs: [],
+  /** @type {House[]} */
   houses: []
 };
 
@@ -65,6 +69,7 @@ class Store {
    * @param {any} data
    */
   commit(prop, data) {
+
     _validateProp(prop);
     _state[prop] = data;
     _listeners[prop].forEach(fn => fn());

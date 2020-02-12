@@ -41,7 +41,7 @@ constructor() {
     _api
       .delete(id)
       .then(res => {
-        let filteredJobs = store.State.jobs.filter(j => j.id != id);
+        let filteredJobs = store.State.jobs.filter(j => j._id != id);
         store.commit("jobs", filteredJobs)
       })
       .catch(error => {
